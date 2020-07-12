@@ -32,6 +32,9 @@ endGameBtn.addEventListener("click", (event) => {
 redBtn.addEventListener("click", (event) => {
   if (gameActive) {
     console.log("red clicked");
+    // push 1 into player sequence array
+    playerSequence.push(1);
+    console.log(playerSequence);
     //call red button function
     red();
     //return red button to unlit color
@@ -44,6 +47,9 @@ redBtn.addEventListener("click", (event) => {
 blueBtn.addEventListener("click", (event) => {
   if (gameActive) {
     console.log("blue clicked");
+    // push 2 into player sequence array
+    playerSequence.push(2);
+    console.log(playerSequence);
     //call blue button function
     blue();
     //return blue button to unlit color
@@ -56,6 +62,9 @@ blueBtn.addEventListener("click", (event) => {
 yellowBtn.addEventListener("click", (event) => {
   if (gameActive) {
     console.log("yellow clicked");
+    // push 3 into player sequence array
+    playerSequence.push(3);
+    console.log(playerSequence);
     //call yellow button function
     yellow();
     //return yellow button to unlit color
@@ -68,6 +77,9 @@ yellowBtn.addEventListener("click", (event) => {
 greenBtn.addEventListener("click", (event) => {
   if (gameActive) {
     console.log("green clicked");
+    // push 4 into player sequence array
+    playerSequence.push(4);
+    console.log(playerSequence);
     //call green button function
     green();
     //return green button to unlit color
@@ -99,7 +111,8 @@ function green() {
 // playGame function - main function for game play
 function playGame() {
   console.log("game started");
-
+  generateSequence();
+  console.log(gameSequence);
   gameActive = true;
 
   //      Clear any stored sequences from previous game
@@ -124,14 +137,14 @@ function restoreColor() {
 // Random sequence generation function
 //      A win is defined as 20 matches
 //      Array size should be 20
-generateSequence();
+
 function generateSequence() {
   for (let i = 0; i < 20; i++) {
     gameSequence.push(Math.floor(Math.random() * 4) + 1);
   }
   return;
 }
-console.log(gameSequence);
+
 // Function for capturing user selections
 // function to evaluate user selection to determine match or error
 // Function to highlight color sequence with time interval between colors
