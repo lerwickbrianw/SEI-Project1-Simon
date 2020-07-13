@@ -105,6 +105,8 @@ greenBtn.addEventListener("click", (event) => {
 function red() {
   //   console.log("red function");
   redBtn.style.backgroundColor = "rgb(248,1,1)";
+  let audio = document.getElementById("redBtnSound");
+  audio.play();
   //return red button to unlit color
   setTimeout(() => {
     restoreColor();
@@ -115,6 +117,8 @@ function red() {
 function blue() {
   //   console.log("bluefunction");
   blueBtn.style.backgroundColor = "rgb(1,1,250)";
+  let audio = document.getElementById("blueBtnSound");
+  audio.play();
   //return blue button to unlit color
   setTimeout(() => {
     restoreColor();
@@ -125,6 +129,8 @@ function blue() {
 function yellow() {
   //   console.log("yellow function");
   yellowBtn.style.backgroundColor = "rgb(255,255,1)";
+  let audio = document.getElementById("yellowBtnSound");
+  audio.play();
   //return yellow button to unlit color
   setTimeout(() => {
     restoreColor();
@@ -135,6 +141,8 @@ function yellow() {
 function green() {
   //   console.log("green function");
   greenBtn.style.backgroundColor = "rgb(1,255,1)";
+  let audio = document.getElementById("greenBtnSound");
+  audio.play();
   //return green button to unlit color
   setTimeout(() => {
     restoreColor();
@@ -167,7 +175,7 @@ function gameRound() {
     highScore = levelCounter;
     document.querySelector(".highScoreValue").innerHTML = highScore;
   }
-  if (levelCounter < 20) {
+  if (levelCounter < 2) {
     clearInterval(eventTimer);
     //   console.log(gameSequence);
     if (highScore <= levelCounter) {
@@ -209,6 +217,8 @@ function gameRound() {
   } else {
     document.querySelector(".errormsg").innerHTML =
       "Congrats!  You won the game!";
+    let audio = document.getElementById("gameWinSound");
+    audio.play();
     gameActive = false;
     console.log(gameActive);
   }
@@ -240,6 +250,8 @@ function checkMatch() {
       //   console.log(`player sequence is ${sequenceNumber}`);
     }
   } else {
+    let audio = document.getElementById("wrongSound");
+    audio.play();
     console.log("incorrect pick time to start over");
     if (easy == true && retry <= 3) {
       document.querySelector(".errormsg").innerHTML = "Sorry, try again!";
@@ -273,7 +285,7 @@ function restoreColor() {
 // Random sequence generation function - Array size should be 20
 function generateSequence() {
   //   console.log("generateSequence function");
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 20; i++) {
     gameSequence.push(Math.floor(Math.random() * 4) + 1);
   }
   return;
