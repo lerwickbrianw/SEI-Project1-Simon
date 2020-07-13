@@ -9,7 +9,7 @@ let eventTimer; // variable for setInterval
 let easy = true; //variable for initial difficulty level
 let highScore = 0; //variable to track high score
 // let lowTime = 0; //variable to track lowest time achieved;
-let retry =0;   //variable to track retries for easy mode;
+let retry = 1; //variable to track retries for easy mode;
 
 //HTML Selectors
 const startGameBtn = document.querySelector("#startGameBtn");
@@ -148,7 +148,7 @@ function playGame() {
   playerSequence = [];
   //   console.log("playGame function");
   generateSequence();
-  //   console.log(gameSequence);
+  console.log(gameSequence);
   gameActive = true;
   computerTurn = true;
   levelCounter = 0;
@@ -161,45 +161,57 @@ function playGame() {
 
 // gameRound function - controls events for each round
 function gameRound() {
-  //   console.log("function gameRound");
+  console.log("function gameRound");
   document.querySelector(".errormsg").innerHTML = "";
-  clearInterval(eventTimer);
-  //   console.log(gameSequence);
-  if (highScore < levelCounter) {
+  if (highScore <= levelCounter) {
     highScore = levelCounter;
     document.querySelector(".highScoreValue").innerHTML = highScore;
   }
-  levelCounter++;
-  //   console.log(`level is ${levelCounter}`);
-  count.innerHTML = levelCounter;
-  sequenceNumber = levelCounter;
-  //   console.log(`sequencenumber is ${sequenceNumber}`);
-  for (let i = 0; i < sequenceNumber; i++) {
-    // if (computerTurn) {
-    // console.log(computerTurn);
-    // console.log(`i=${i}`);
-    setTimeout(() => {
-      if (gameSequence[i] == 1) {
-        // console.log("calling red");
-        red();
-      } else if (gameSequence[i] == 2) {
-        // console.log("calling blue");
-        blue();
-      } else if (gameSequence[i] == 3) {
-        // console.log("calling yellow");
-        yellow();
-      } else if (gameSequence[i] == 4) {
-        // console.log("calling green");
-        green();
-      }
-    }, 1000 * i);
-    // console.log(`computer sequence number is ${i}`);
-    // }
-    console.log("computer is done, players turn");
-    computerTurn = false;
-    playerSequence = [];
+  if (levelCounter < 20) {
+    clearInterval(eventTimer);
+    //   console.log(gameSequence);
+    if (highScore <= levelCounter) {
+      highScore = levelCounter;
+      document.querySelector(".highScoreValue").innerHTML = highScore;
+    }
+
+    levelCounter++;
+    // console.log(`level is ${levelCounter}`);
+    count.innerHTML = levelCounter;
+    sequenceNumber = levelCounter;
+    //   console.log(`sequencenumber is ${sequenceNumber}`);
+    for (let i = 0; i < sequenceNumber; i++) {
+      // if (computerTurn) {
+      // console.log(computerTurn);
+      // console.log(`i=${i}`);
+      setTimeout(() => {
+        if (gameSequence[i] == 1) {
+          // console.log("calling red");
+          red();
+        } else if (gameSequence[i] == 2) {
+          // console.log("calling blue");
+          blue();
+        } else if (gameSequence[i] == 3) {
+          // console.log("calling yellow");
+          yellow();
+        } else if (gameSequence[i] == 4) {
+          // console.log("calling green");
+          green();
+        }
+      }, 1000 * i);
+      // console.log(`computer sequence number is ${i}`);
+      // }
+      console.log("computer is done, players turn");
+      computerTurn = false;
+      playerSequence = [];
+    }
+    sequenceNumber = 1;
+  } else {
+    document.querySelector(".errormsg").innerHTML =
+      "Congrats!  You won the game!";
+    gameActive = false;
+    console.log(gameActive);
   }
-  sequenceNumber = 1;
 }
 
 // check match function
@@ -214,6 +226,7 @@ function checkMatch() {
     //   }`
     // );
     match = true;
+    retry = 1;
     // console.log(`player sequence no ${sequenceNumber}`);
 
     if (sequenceNumber === levelCounter) {
@@ -228,17 +241,24 @@ function checkMatch() {
     }
   } else {
     console.log("incorrect pick time to start over");
-    if (easy==true) {
-        document.querySelector(".errormsg").innerHTML = "Sorry, try again!";
-
-    eventTimer = setInterval(playGame, 2000);
+    if (easy == true && retry <= 3) {
+      document.querySelector(".errormsg").innerHTML = "Sorry, try again!";
+      console.log(retry);
+      retry++;
+      levelCounter--;
+      sequenceNumber = 0;
+      eventTimer = setInterval(gameRound, 2000);
+    } else {
+      document.querySelector(".errormsg").innerHTML = "Sorry, game over";
+      eventTimer = setInterval(endGame, 2000);
+    }
   }
 }
 // endGame function - handles Quit button function when player wants to quit
 function endGame() {
   console.log("game ended");
+
   gameActive = false;
-  //      Set all colors back to original
 }
 
 //restore color function - returns button to original color afer flash or player click
@@ -253,7 +273,7 @@ function restoreColor() {
 // Random sequence generation function - Array size should be 20
 function generateSequence() {
   //   console.log("generateSequence function");
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 3; i++) {
     gameSequence.push(Math.floor(Math.random() * 4) + 1);
   }
   return;
