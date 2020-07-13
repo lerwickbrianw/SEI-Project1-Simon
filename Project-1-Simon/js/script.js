@@ -5,6 +5,7 @@ let levelCounter = 0; //variable to track levels'
 let computerTurn; //variable to track who is playing
 let match = false; //variable to track if player selection matches for the round
 let sequenceNumber = 0; //variable to iterate through the sequence each round
+let eventTimer; // variable for setInterval
 
 //HTML Selectors
 const startGameBtn = document.querySelector("#startGameBtn");
@@ -26,7 +27,7 @@ count.innerHTML = levelCounter;
 
 //Event listener for Start Game button - executes playGame function
 startGameBtn.addEventListener("click", (event) => {
-  console.log("startGameBtn");
+  //   console.log("startGameBtn");
   playGame();
 });
 
@@ -38,10 +39,10 @@ endGameBtn.addEventListener("click", (event) => {
 // Event Listener for red button
 redBtn.addEventListener("click", (event) => {
   if (gameActive && !computerTurn) {
-    console.log("red clicked");
+    // console.log("red clicked");
     // push 1 into player sequence array
     playerSequence.push(1);
-    console.log(playerSequence);
+    // console.log(playerSequence);
     //call red button function to flash color
     red();
     checkMatch();
@@ -50,10 +51,10 @@ redBtn.addEventListener("click", (event) => {
 // Event Listener for blue button
 blueBtn.addEventListener("click", (event) => {
   if (gameActive && !computerTurn) {
-    console.log("blue clicked");
+    // console.log("blue clicked");
     // push 2 into player sequence array
     playerSequence.push(2);
-    console.log(playerSequence);
+    // console.log(playerSequence);
     //call blue button function to flash color
     blue();
     checkMatch();
@@ -62,10 +63,10 @@ blueBtn.addEventListener("click", (event) => {
 // Event Listener for yellow button
 yellowBtn.addEventListener("click", (event) => {
   if (gameActive && !computerTurn) {
-    console.log("yellow clicked");
+    // console.log("yellow clicked");
     // push 3 into player sequence array
     playerSequence.push(3);
-    console.log(playerSequence);
+    // console.log(playerSequence);
     //call yellow button function to flash color
     yellow();
     checkMatch();
@@ -74,10 +75,10 @@ yellowBtn.addEventListener("click", (event) => {
 // Event Listener for green button
 greenBtn.addEventListener("click", (event) => {
   if (gameActive && !computerTurn) {
-    console.log("green clicked");
+    // console.log("green clicked");
     // push 4 into player sequence array
     playerSequence.push(4);
-    console.log(playerSequence);
+    // console.log(playerSequence);
     //call green button function to flash color
     green();
     checkMatch();
@@ -86,77 +87,77 @@ greenBtn.addEventListener("click", (event) => {
 
 //function for events when red button is pressed
 function red() {
-  console.log("red function");
+  //   console.log("red function");
   redBtn.style.backgroundColor = "rgb(248,1,1)";
   //return red button to unlit color
   setTimeout(() => {
     restoreColor();
-  }, 300);
+  }, 500);
 }
 
 //function for events when blue button is pressed
 function blue() {
-  console.log("bluefunction");
+  //   console.log("bluefunction");
   blueBtn.style.backgroundColor = "rgb(1,1,250)";
   //return blue button to unlit color
   setTimeout(() => {
     restoreColor();
-  }, 300);
+  }, 500);
 }
 
 //function for events when yellow button is pressed
 function yellow() {
-  console.log("yellow function");
+  //   console.log("yellow function");
   yellowBtn.style.backgroundColor = "rgb(255,255,1)";
   //return yellow button to unlit color
   setTimeout(() => {
     restoreColor();
-  }, 300);
+  }, 500);
 }
 
 //function for events when green button is pressed
 function green() {
-  console.log("green function");
+  //   console.log("green function");
   greenBtn.style.backgroundColor = "rgb(1,255,1)";
   //return green button to unlit color
   setTimeout(() => {
     restoreColor();
-  }, 300);
+  }, 500);
 }
 
 // playGame function - set up game to start
 function playGame() {
+  clearInterval(eventTimer);
   gameSequence = [];
   playerSequence = [];
-  console.log("playGame function");
+  //   console.log("playGame function");
   generateSequence();
-  console.log(gameSequence);
+  //   console.log(gameSequence);
   gameActive = true;
   computerTurn = true;
   levelCounter = 0;
   count.innerHTML = levelCounter;
-  console.log(`gameActive ${gameActive}`);
+  //   console.log(`gameActive ${gameActive}`);
   console.log("i'm done here now. the game is ready to play");
-  gameRound();
-  //   intervalId = setInterval(gameRound, 800);
-  //      Clear any stored sequences from previous game
-  //  	Call random sequence generation
+  //   gameRound();
+  eventTimer = setInterval(gameRound, 800);
 }
 
 // gameRound function - controls events for each round
 function gameRound() {
-  console.log("function gameRound");
+  //   console.log("function gameRound");
   document.querySelector(".errormsg").innerHTML = "";
-  console.log(gameSequence);
+  clearInterval(eventTimer);
+  //   console.log(gameSequence);
   levelCounter++;
-  console.log(`level is ${levelCounter}`);
+  //   console.log(`level is ${levelCounter}`);
   count.innerHTML = levelCounter;
   sequenceNumber = levelCounter;
-  console.log(`sequencenumber is ${sequenceNumber}`);
+  //   console.log(`sequencenumber is ${sequenceNumber}`);
   for (let i = 0; i < sequenceNumber; i++) {
     // if (computerTurn) {
-    console.log(computerTurn);
-    console.log(`i=${i}`);
+    // console.log(computerTurn);
+    // console.log(`i=${i}`);
     setTimeout(() => {
       if (gameSequence[i] == 1) {
         console.log("calling red");
@@ -171,7 +172,7 @@ function gameRound() {
         console.log("calling green");
         green();
       }
-    }, 200);
+    }, 1000 * i);
     console.log(`computer sequence number is ${i}`);
     // }
     console.log("computer is done, players turn");
@@ -199,8 +200,8 @@ function checkMatch() {
       console.log("sequence matches end of players turn and end of round");
       computerTurn = true;
       sequenceNumber = 0;
-      gameRound();
-      //   intervalId = setInterval(gameRound, 800);
+      //   gameRound();
+      eventTimer = setInterval(gameRound, 800);
     } else {
       sequenceNumber++;
       console.log(`player sequence is ${sequenceNumber}`);
@@ -208,7 +209,8 @@ function checkMatch() {
   } else {
     console.log("incorrect pick time to start over");
     document.querySelector(".errormsg").innerHTML = "Sorry, try again!";
-    playGame();
+    // playGame();
+    eventTimer = setInterval(playGame, 2000);
   }
 }
 // endGame function - handles Quit button function when player wants to quit
@@ -227,10 +229,7 @@ function restoreColor() {
   greenBtn.style.backgroundColor = "darkgreen";
 }
 
-// Random sequence generation function
-//      A win is defined as 20 matches
-//      Array size should be 20
-
+// Random sequence generation function - Array size should be 20
 function generateSequence() {
   console.log("generateSequence function");
   for (let i = 0; i < 20; i++) {
@@ -238,9 +237,3 @@ function generateSequence() {
   }
   return;
 }
-
-// Function for capturing user selections
-// function to evaluate user selection to determine match or error
-// Function to highlight color sequence with time interval between colors
-// Function to count and display number of correct matches
-// Function to display error message for incorrect selection
