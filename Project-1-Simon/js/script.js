@@ -4,6 +4,7 @@ let gameActive = false; //varible to track if game is active
 let levelCounter = 0; //variable to track levels'
 let computerTurn; //variable to track who is playing
 let match = false; //variable to track if player selection matches for the round
+let sequenceNumber = 0; //variable to iterate through the sequence each round
 
 //HTML Selectors
 const startGameBtn = document.querySelector("#startGameBtn");
@@ -36,7 +37,7 @@ endGameBtn.addEventListener("click", (event) => {
 
 // Event Listener for red button
 redBtn.addEventListener("click", (event) => {
-  if (gameActive) {
+  if (gameActive && !computerTurn) {
     console.log("red clicked");
     // push 1 into player sequence array
     playerSequence.push(1);
@@ -48,7 +49,7 @@ redBtn.addEventListener("click", (event) => {
 });
 // Event Listener for blue button
 blueBtn.addEventListener("click", (event) => {
-  if (gameActive) {
+  if (gameActive && !computerTurn) {
     console.log("blue clicked");
     // push 2 into player sequence array
     playerSequence.push(2);
@@ -60,7 +61,7 @@ blueBtn.addEventListener("click", (event) => {
 });
 // Event Listener for yellow button
 yellowBtn.addEventListener("click", (event) => {
-  if (gameActive) {
+  if (gameActive && !computerTurn) {
     console.log("yellow clicked");
     // push 3 into player sequence array
     playerSequence.push(3);
@@ -72,7 +73,7 @@ yellowBtn.addEventListener("click", (event) => {
 });
 // Event Listener for green button
 greenBtn.addEventListener("click", (event) => {
-  if (gameActive) {
+  if (gameActive && !computerTurn) {
     console.log("green clicked");
     // push 4 into player sequence array
     playerSequence.push(4);
@@ -125,16 +126,19 @@ function green() {
 
 // playGame function - set up game to start
 function playGame() {
+  gameSequence = [];
+  playerSequence = [];
   console.log("playGame function");
   generateSequence();
   console.log(gameSequence);
   gameActive = true;
   computerTurn = true;
-  levelCounter = 1;
+  //   levelCounter = 1;
   count.innerHTML = levelCounter;
   console.log(`gameActive ${gameActive}`);
-  console.log("i'm done here now. the computers turn");
+  console.log("i'm done here now. the game is ready to play");
   gameRound();
+  //   intervalId = setInterval(gameRound, 800);
   //      Clear any stored sequences from previous game
   //  	Call random sequence generation
 }
@@ -142,40 +146,65 @@ function playGame() {
 // gameRound function - controls events for each round
 function gameRound() {
   console.log("function gameRound");
-  console.log(levelCounter);
-  if (computerTurn) {
+  console.log(gameSequence);
+  levelCounter++;
+  console.log(`level is ${levelCounter}`);
+  count.innerHTML = levelCounter;
+  sequenceNumber = levelCounter;
+  console.log(`sequencenumber is ${sequenceNumber}`);
+  for (let i = 0; i < sequenceNumber; i++) {
+    // if (computerTurn) {
+    console.log(computerTurn);
+    console.log(`i=${i}`);
     setTimeout(() => {
-      if (gameSequence[levelCounter - 1] == 1) {
+      if (gameSequence[i] == 1) {
+        console.log("calling red");
         red();
-      } else if (gameSequence[levelCounter - 1] == 2) {
+      } else if (gameSequence[i] == 2) {
+        console.log("calling blue");
         blue();
-      } else if (gameSequence[levelCounter - 1] == 3) {
+      } else if (gameSequence[i] == 3) {
+        console.log("calling yellow");
         yellow();
-      } else if (gameSequence[levelCounter - 1] == 4) {
+      } else if (gameSequence[i] == 4) {
+        console.log("calling green");
         green();
       }
     }, 200);
+    console.log(`computer sequence number is ${i}`);
+    // }
+    console.log("computer is done, players turn");
     computerTurn = false;
+    playerSequence = [];
   }
+  sequenceNumber = 1;
 }
 
 // check match function
 function checkMatch() {
   console.log("checkMatch function");
-  if (gameSequence[levelCounter - 1] === playerSequence[levelCounter - 1]) {
+  console.log(`seq no = ${sequenceNumber}`);
+  //   console.log(`player sequenceNumber is ${i}`);
+  if (gameSequence[sequenceNumber - 1] === playerSequence[sequenceNumber - 1]) {
     console.log(
-      ` computer ${gameSequence[levelCounter - 1]} player ${
-        playerSequence[levelCounter - 1]
+      ` computer ${gameSequence[sequenceNumber - 1]} player ${
+        playerSequence[sequenceNumber - 1]
       }`
     );
     match = true;
-    levelCounter++;
-    count.innerHTML = levelCounter;
-    console.log("sequence matches end of round");
-    computerTurn = true;
-    gameRound();
+    console.log(`player sequence no ${sequenceNumber}`);
+
+    if (sequenceNumber === levelCounter) {
+      console.log("sequence matches end of players turn and end of round");
+      computerTurn = true;
+      sequenceNumber = 0;
+      gameRound();
+      //   intervalId = setInterval(gameRound, 800);
+    } else {
+      sequenceNumber++;
+      console.log(`player sequence is ${sequenceNumber}`);
+    }
   } else {
-    match = false;
     console.log("incorrect pick time to start over");
     playGame();
   }
