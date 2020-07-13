@@ -133,7 +133,7 @@ function playGame() {
   console.log(gameSequence);
   gameActive = true;
   computerTurn = true;
-  //   levelCounter = 1;
+  levelCounter = 0;
   count.innerHTML = levelCounter;
   console.log(`gameActive ${gameActive}`);
   console.log("i'm done here now. the game is ready to play");
@@ -146,6 +146,7 @@ function playGame() {
 // gameRound function - controls events for each round
 function gameRound() {
   console.log("function gameRound");
+  document.querySelector(".errormsg").innerHTML = "";
   console.log(gameSequence);
   levelCounter++;
   console.log(`level is ${levelCounter}`);
@@ -206,6 +207,7 @@ function checkMatch() {
     }
   } else {
     console.log("incorrect pick time to start over");
+    document.querySelector(".errormsg").innerHTML = "Sorry, try again!";
     playGame();
   }
 }
