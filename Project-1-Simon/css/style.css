@@ -1,9 +1,4 @@
 body {
-  /* font-family: "Ruluko", sans-serif;
-  margin: 0px auto;
-  text-align: center;
-  width: 600px;
-  font-size: 30px; */
   background-color: whitesmoke;
 }
 #outerCircle {
@@ -95,36 +90,42 @@ body {
   margin-left: 42px;
   margin-top: 34px;
 }
-/* .button {
-  border-radius: 50% !important;
-  font-size: 1.5em;
-  background-color: lightgray; */
-
+#switches {
+  position: absolute;
+  font-family: Trebuchet, Arial, sans-serif;
+  margin-left: 6px;
+  margin-top: 8px;
+}
 #startGameBtn {
   position: absolute;
   border: solid 3px black;
   border-radius: 50%;
-  height: 20%;
-  width: 20%;
-  margin: 120px 0px 0px 112px;
+  height: 30px;
+  width: 30px;
+  margin-top: 122px;
+  margin-left: 121px;
   background: red;
-  font-size: 20px;
-  line-height: 17px;
+}
+#startButtonTxt {
+  position: absolute;
+  height: 30%;
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
   text-align: center;
+  margin-top: 153px;
+  margin-left: 118px;
 }
 #countBox {
   position: absolute;
-  margin: 120px 0px 0px 35px;
-  /* vertical-align: top;
-  display: inline-block; */
+  margin: 120px 0px 0px 30px;
   height: 50px;
   width: 50.3px;
 }
 #highLevelBox {
   position: absolute;
+  font-family: Trebuchet, Arial, sans-serif;
   margin: 120px 0px 0px 200px;
-  /* vertical-align: top;
-  display: inline-block; */
   height: 50px;
   width: 50.3px;
 }
@@ -133,14 +134,39 @@ body {
   border-radius: 20%;
   height: 50%;
   margin: 0px 6px 0px 6px;
+
   background: red;
   font-size: 20px;
   line-height: 24px;
   text-align: center;
 }
-#countText {
+#currentText {
   height: 30%;
-  margin: 4px 6px 0px 6px;
+  margin: -50px 6px 0px 6px;
+  font-size: 13px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+#currentText2 {
+  height: 30%;
+  margin: 36px 6px 0px 6px;
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+#highText {
+  height: 30%;
+  margin: -50px 6px 0px 6px;
+  font-size: 13px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+#highText2 {
+  height: 30%;
+  margin: 36px 6px 0px 6px;
   font-size: 15px;
   color: black;
   font-weight: bold;
@@ -152,7 +178,7 @@ body {
 /* on off switcht code from https://proto.io/freebies/onoff/ */
 .difficultyswitch {
   position: absolute;
-  margin: 195px 0px 0px 150px;
+  margin: 180px 0px 0px 150px;
   width: 90px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -230,7 +256,7 @@ body {
 
 .onoffswitch {
   position: absolute;
-  margin: 195px 0px 0px 30px;
+  margin: 180px 0px 0px 30px;
   width: 90px;
   -webkit-user-select: none;
   -moz-user-select: none;

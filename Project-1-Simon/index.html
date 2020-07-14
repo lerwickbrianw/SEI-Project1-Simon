@@ -61,23 +61,27 @@
         <div id="title" class="font-effect-emboss">SIMON</div>
         <div id="switches">
             <!-- <input type="checkbox" class="toggle" id="on"> -->
-            <button class="button" id="startGameBtn">Start</button>
+            <button class="button" id="startGameBtn"></button>
+            <div id="startButtonTxt">Start</div>
             <div id="countBox">
                 <div id="countDisplay">
                     <div id="displayText">
-                        20
+                        --
                     </div>
                 </div>
-                <div id="countText">Count</div>
+                <div id="currentText">Current</div>
+                <div id="currentText2">Level</div>
             </div>
             <div id="highLevelBox">
                 <div id="countDisplay">
                     <div id="displayText">
-                        20
+                        --
                     </div>
                 </div>
-                <div id="countText">High Level</div>
+                <div id="highText">High</div>
+                <div id="highText2">Level</div>
             </div>
+            
             <!-- // on off switcht code from https://proto.io/freebies/onoff/ --> 
             <div class="difficultyswitch"> 
                 <input type="checkbox" name="difficultyswitch" class="difficultyswitch-checkbox" id="mydiffswitch" tabindex="0" checked />
@@ -87,7 +91,7 @@
                 </label>
             </div>
             <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked />
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"/>
                 <label class="onoffswitch-label" for="myonoffswitch">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
