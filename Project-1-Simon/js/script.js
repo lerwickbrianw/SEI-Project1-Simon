@@ -175,7 +175,7 @@ function gameRound() {
     highScore = levelCounter;
     document.querySelector(".highScoreValue").innerHTML = highScore;
   }
-  if (levelCounter < 2) {
+  if (levelCounter < 20) {
     clearInterval(eventTimer);
     //   console.log(gameSequence);
     if (highScore <= levelCounter) {
