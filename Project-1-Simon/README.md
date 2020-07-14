@@ -6,7 +6,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
 
 ## Bonus:
 
-- dd timer-based scoring
+- Add timer-based scoring
 - Track scores across games (even if the page is reloaded)
 
 # MVP - Bronze:
@@ -20,7 +20,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
 - Failure message when incorrect sequence is pressed by the player
 - Game ends when incorrect sequence is entered
 
-![bronze wireframe image](images/bronze wireframe.png)
+![alt text](images/bronze wireframe.png) "bronze wireframe image"
 
 ## Bronze Pseudocode
 
