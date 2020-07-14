@@ -33,8 +33,8 @@ Simon is a test of memory. Have your program choose a sequence of different colo
 - Start Game button
 - End Game button
 - Score label display
-- core value display
-- 2 Error message display element
+- Score value display
+- H2 Error message display element
 
 ### CSS:
 
@@ -62,3 +62,84 @@ Simon is a test of memory. Have your program choose a sequence of different colo
   - Don’t allow player to click on any buttons while computer is flashing sequence
 - Function to count and display number of correct matches
 - Function to display error message for incorrect selection
+
+# MVP -Silver:
+
+- Track highest score achieved for the current player – Move to Gold
+- Add timer-based scoring – Move to Gold
+- Simple/Hard mode selection – simple mode allows player to retry 3 times to get correct sequence before game ends.
+- Player wins after 20 successful matches
+
+![alt text](images/silver wireframe.png) "silver wireframe image"
+
+## Silver Pseudocode:
+
+### HTML:
+
+- Add High Score tag
+- Add Elapsed time tag– Move to Gold
+- Add Record time tag– Move to Gold
+- Add Easy/Hard tag
+
+### CSS:
+
+- Update CSS as required for new tags
+
+### JS:
+
+- High Score
+  - Create high score variable
+  - Create function to check current level against high score and update if new high score
+  - Display high score on screen
+- Record Time– Move to Gold
+  - Create fastest time variable
+  - Display fastest time on screen
+- Elapsed Time– Move to Gold
+  - Create timer function
+    - [title](https://www.ostraining.com/blog/coding/stopwatch/)
+    - [title](https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript)
+    - [title](https://jsfiddle.net/Daniel_Hug/pvk6p/)
+  - Display timer on screen
+- Easy/Hard
+  - Create skill level variable
+  - If hard – end game after incorrect sequence
+  - If easy – computer displays current level again and repeats 3 times. Game ends after 3rd incorrect pick
+- 20 Match win
+  - Add needed conditions to check for win and display message
+
+# MVP - Gold:
+
+- Revise UI to match layout of traditional Simon game
+- Add sound to game
+  - one tone for each color
+  - sound for incorrect match
+  - sound when clicking button
+- Track highest score across games even if the page is reloaded
+
+![alt text](images/gold wireframe.png) "gold wireframe image"
+
+## Gold Pseudocode
+
+### HTML:
+
+- Sounds
+  - Add sound tags
+- Classic game look
+  - Turn squares into quarter circles
+  - Add inner circle element
+  - Add power button
+  - Move level and high score displays to center
+
+### CSS:
+
+- Classic game look
+  - Turn squares into quarter circles
+  - Add inner circle element
+  - Add elements to support HTML changes
+
+### JS:
+
+- Sounds
+  - Add document selector and play() code
+- Classic game look
+  - Add power button
