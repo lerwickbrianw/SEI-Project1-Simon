@@ -7,6 +7,7 @@ let match = false; //variable to track if player selection matches for the round
 let sequenceNumber = 0; //variable to iterate through the sequence each round
 let eventTimer; // variable for setInterval
 let easy = true; //variable for initial difficulty level
+let on = false; // variable for power switch status
 let highScore = 0; //variable to track high score
 // let lowTime = 0; //variable to track lowest time achieved;
 let retry = 1; //variable to track retries for easy mode;
@@ -18,8 +19,9 @@ const redBtn = document.querySelector(".cell-red");
 const blueBtn = document.querySelector(".cell-blue");
 const yellowBtn = document.querySelector(".cell-yellow");
 const greenBtn = document.querySelector(".cell-green");
-const count = document.querySelector(".value");
-const difficulty = document.querySelector("#myonoffswitch");
+const count = document.querySelector(".currentlevel");
+const difficulty = document.querySelector("#mydiffswitch");
+const powerOn = document.querySelector("#myonoffswitch");
 //Console lots for selector tests
 // console.log(startGameBtn);
 // console.log(endGameBtn);
@@ -38,19 +40,33 @@ difficulty.addEventListener("click", (event) => {
   console.log(easy);
 });
 
-//display beginning level
-count.innerHTML = levelCounter;
+//event listener for the power switch
+powerOn.addEventListener("click", (event) => {
+  if (powerOn.checked == true) {
+    on = true;
+    //display beginning level
+    count.innerHTML = levelCounter;
+  } else {
+    on = false;
+    count.innerHTML = "--";
+  }
+});
 
 //Event listener for Start Game button - executes playGame function
 startGameBtn.addEventListener("click", (event) => {
   //   console.log("startGameBtn");
-  playGame();
+  console.log(gameActive);
+  if (on && !gameActive) {
+    startGameBtn.style.backgroundColor = "green";
+    gameActive = true;
+    playGame();
+  }
 });
 
 //Event listener for End Game button - executes endGame function
-endGameBtn.addEventListener("click", (event) => {
-  endGame();
-});
+// endGameBtn.addEventListener("click", (event) => {
+//   endGame();
+// });
 
 // Event Listener for red button
 redBtn.addEventListener("click", (event) => {
@@ -151,36 +167,39 @@ function green() {
 
 // playGame function - set up game to start
 function playGame() {
+  console.log("playGame function");
+  console.log(gameActive);
   clearInterval(eventTimer);
-  gameSequence = [];
-  playerSequence = [];
-  //   console.log("playGame function");
-  generateSequence();
-  console.log(gameSequence);
-  gameActive = true;
-  computerTurn = true;
-  levelCounter = 0;
-  count.innerHTML = levelCounter;
-  //   console.log(`gameActive ${gameActive}`);
-  console.log("i'm done here now. the game is ready to play");
-  //   gameRound();
-  eventTimer = setInterval(gameRound, 800);
+  if (gameActive) {
+    gameSequence = [];
+    playerSequence = [];
+
+    generateSequence();
+    console.log(gameSequence);
+    computerTurn = true;
+    levelCounter = 0;
+    count.innerHTML = levelCounter;
+    //   console.log(`gameActive ${gameActive}`);
+    console.log("i'm done here now. the game is ready to play");
+    //   gameRound();
+    eventTimer = setInterval(gameRound, 800);
+  }
 }
 
 // gameRound function - controls events for each round
 function gameRound() {
   console.log("function gameRound");
-  document.querySelector(".errormsg").innerHTML = "";
+  //   document.querySelector(".errormsg").innerHTML = "";
   if (highScore <= levelCounter) {
     highScore = levelCounter;
-    document.querySelector(".highScoreValue").innerHTML = highScore;
+    document.querySelector(".highlevel").innerHTML = highScore;
   }
   if (levelCounter < 20) {
     clearInterval(eventTimer);
     //   console.log(gameSequence);
     if (highScore <= levelCounter) {
       highScore = levelCounter;
-      document.querySelector(".highScoreValue").innerHTML = highScore;
+      document.querySelector(".highlevel").innerHTML = highScore;
     }
 
     levelCounter++;
@@ -215,8 +234,8 @@ function gameRound() {
     }
     sequenceNumber = 1;
   } else {
-    document.querySelector(".errormsg").innerHTML =
-      "Congrats!  You won the game!";
+    // document.querySelector(".errormsg").innerHTML =
+    //   "Congrats!  You won the game!";
     let audio = document.getElementById("gameWinSound");
     audio.play();
     gameActive = false;
@@ -244,7 +263,7 @@ function checkMatch() {
       computerTurn = true;
       sequenceNumber = 0;
       //   gameRound();
-      eventTimer = setInterval(gameRound, 800);
+      eventTimer = setInterval(gameRound, 1500);
     } else {
       sequenceNumber++;
       //   console.log(`player sequence is ${sequenceNumber}`);
@@ -254,23 +273,20 @@ function checkMatch() {
     audio.play();
     console.log("incorrect pick time to start over");
     if (easy == true && retry <= 3) {
-      document.querySelector(".errormsg").innerHTML = "Sorry, try again!";
+      //   document.querySelector(".errormsg").innerHTML = "Sorry, try again!";
       console.log(retry);
       retry++;
       levelCounter--;
       sequenceNumber = 0;
       eventTimer = setInterval(gameRound, 2000);
     } else {
-      document.querySelector(".errormsg").innerHTML = "Sorry, game over";
-      eventTimer = setInterval(endGame, 2000);
+      //   document.querySelector(".errormsg").innerHTML = "Sorry, game over";
+      startGameBtn.style.backgroundColor = "red";
+      count.innerHTML = "--";
+      gameActive = false;
+      eventTimer = setInterval(playGame, 2000);
     }
   }
-}
-// endGame function - handles Quit button function when player wants to quit
-function endGame() {
-  console.log("game ended");
-
-  gameActive = false;
 }
 
 //restore color function - returns button to original color afer flash or player click

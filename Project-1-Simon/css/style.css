@@ -175,6 +175,13 @@ body {
 #displayText {
   opacity: 0.3;
 }
+.credit {
+  position: absolute;
+  margin-top: 234px;
+  margin-left: 113px;
+  font-size: 13px;
+  text-align: center;
+}
 /* on off switcht code from https://proto.io/freebies/onoff/ */
 .difficultyswitch {
   position: absolute;
