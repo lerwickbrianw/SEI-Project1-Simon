@@ -20,7 +20,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
 - Failure message when incorrect sequence is pressed by the player
 - Game ends when incorrect sequence is entered
 
-![bronze wireframe image](/images/bronze wireframe.png)
+![bronze wireframe image](/images/bronze_wireframe.png)
 
 ## Bronze Pseudocode
 
@@ -70,7 +70,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
 - Simple/Hard mode selection – simple mode allows player to retry 3 times to get correct sequence before game ends.
 - Player wins after 20 successful matches
 
-![silver wireframe image](/images/silver wireframe.png)
+![silver wireframe image](/images/silver_wireframe.png)
 
 ## Silver Pseudocode:
 
@@ -125,7 +125,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
     - [https://jsfiddle.net/Daniel_Hug/pvk6p/](https://jsfiddle.net/Daniel_Hug/pvk6p/)
   - Display timer on screen
 
-![gold wireframe image](/images/gold wireframe.png)
+![gold wireframe image](/images/gold_wireframe.png)
 
 ## Gold Pseudocode
 
