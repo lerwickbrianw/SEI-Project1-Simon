@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simon Sez</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Candal&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <audio
@@ -33,71 +36,66 @@
       src="http://commondatastorage.googleapis.com/codeskulptor-demos/pyman_assets/intromusic.ogg"
     ></audio>
 
-    <!-- <h1>Simon Sez</h1>
-
-    <div class="header">
-      <h2 class="errormsg"></h2>
-      <div class="counterContainer">
-        <div class="counter label">Count</div>
-        <div class="counter value">0</div>
-      </div>
-      <div class="highScoreContainer">
-        <div class="counter highScoreLabel">High Score</div>
-        <div class="value highScoreValue">0</div>
-      </div> -->
-      <!-- <div class="fastestContainer">
-        <div class="counter fastestLabel">Quickest</div>
-        <div class="value fastestalue">0</div>
-      </div> -->
-    </div>
-    
     <!-- <div class="timer">0:00</div> -->
     <div id="outerCircle">
       <div class="cell cell-red" value="1"></div>
       <div class="cell cell-blue" value="2"></div>
       <div class="cell cell-green" value="3"></div>
       <div class="cell cell-yellow" value="4"></div>
-      <div id='innerCircle'>
-        <div id="title" class="font-effect-emboss">SIMON</div>
+      <div id="innerCircle">
+        <div id="title">SIMON</div>
         <div id="switches">
-            <!-- <input type="checkbox" class="toggle" id="on"> -->
-            <button class="button" id="startGameBtn"></button>
-            <div id="startButtonTxt">Start</div>
-            <div id="countBox">
-                <div id="countDisplay">
-                    <div class="currentlevel" id="displayText">
-                        --
-                    </div>
-                </div>
-                <div id="currentText">Current</div>
-                <div id="currentText2">Level</div>
+          <!-- <input type="checkbox" class="toggle" id="on"> -->
+          <button class="button" id="startGameBtn"></button>
+          <div id="startButtonTxt">Start</div>
+          <div id="countBox">
+            <div id="countDisplay">
+              <div class="currentlevel" id="displayText">
+                --
+              </div>
             </div>
-            <div id="highLevelBox">
-                <div id="countDisplay">
-                    <div class="highlevel" id="displayText">
-                        --
-                    </div>
-                </div>
-                <div id="highText">High</div>
-                <div id="highText2">Level</div>
+            <div id="currentText">Current</div>
+            <div id="currentText2">Level</div>
+          </div>
+          <div id="highLevelBox">
+            <div id="countDisplay">
+              <div class="highlevel" id="displayText">
+                --
+              </div>
             </div>
-            
-            <!-- // on off switcht code from https://proto.io/freebies/onoff/ --> 
-            <div class="difficultyswitch"> 
-                <input type="checkbox" name="difficultyswitch" class="difficultyswitch-checkbox" id="mydiffswitch" tabindex="0" checked />
-                <label class="difficultyswitch-label" for="mydiffswitch">
-                    <span class="difficultyswitch-inner"></span>
-                    <span class="difficultyswitch-switch"></span>
-                </label>
-            </div>
-            <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"/>
-                <label class="onoffswitch-label" for="myonoffswitch">
-                    <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
-                </label>
-            </div>
-            <div class="credit">Mavrick Edition</div>
+            <div id="highText">High</div>
+            <div id="highText2">Level</div>
+          </div>
+
+          <!-- // on off switcht code from https://proto.io/freebies/onoff/ -->
+          <div class="difficultyswitch">
+            <input
+              type="checkbox"
+              name="difficultyswitch"
+              class="difficultyswitch-checkbox"
+              id="mydiffswitch"
+              tabindex="0"
+              checked
+            />
+            <label class="difficultyswitch-label" for="mydiffswitch">
+              <span class="difficultyswitch-inner"></span>
+              <span class="difficultyswitch-switch"></span>
+            </label>
+          </div>
+          <div class="onoffswitch">
+            <input
+              type="checkbox"
+              name="onoffswitch"
+              class="onoffswitch-checkbox"
+              id="myonoffswitch"
+              tabindex="0"
+            />
+            <label class="onoffswitch-label" for="myonoffswitch">
+              <span class="onoffswitch-inner"></span>
+              <span class="onoffswitch-switch"></span>
+            </label>
+          </div>
+          <div class="credit">Mavrick Edition</div>
         </div>
       </div>
     </div>

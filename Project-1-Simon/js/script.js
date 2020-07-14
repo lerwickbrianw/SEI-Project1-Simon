@@ -49,6 +49,8 @@ powerOn.addEventListener("click", (event) => {
   } else {
     on = false;
     count.innerHTML = "--";
+    startGameBtn.style.backgroundColor = "red";
+    gameActive = false;
   }
 });
 
@@ -183,6 +185,8 @@ function playGame() {
     console.log("i'm done here now. the game is ready to play");
     //   gameRound();
     eventTimer = setInterval(gameRound, 800);
+  } else {
+    console.log("game has ended");
   }
 }
 
@@ -234,12 +238,14 @@ function gameRound() {
     }
     sequenceNumber = 1;
   } else {
-    // document.querySelector(".errormsg").innerHTML =
-    //   "Congrats!  You won the game!";
+    console.log("Congrats!  You won the game!");
     let audio = document.getElementById("gameWinSound");
     audio.play();
+    startGameBtn.style.backgroundColor = "red";
+    count.innerHTML = "--";
     gameActive = false;
-    console.log(gameActive);
+    clearInterval(eventTimer);
+    // eventTimer = setInterval(playGame, 2000);
   }
 }
 
