@@ -20,7 +20,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
 - Failure message when incorrect sequence is pressed by the player
 - Game ends when incorrect sequence is entered
 
-![alt text](images/bronze wireframe.png) "bronze wireframe image"
+![bronze wireframe image](/images/bronze wireframe.png)
 
 ## Bronze Pseudocode
 
@@ -70,7 +70,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
 - Simple/Hard mode selection – simple mode allows player to retry 3 times to get correct sequence before game ends.
 - Player wins after 20 successful matches
 
-![alt text](images/silver wireframe.png) "silver wireframe image"
+![silver wireframe image](/images/silver wireframe.png)
 
 ## Silver Pseudocode:
 
@@ -96,9 +96,9 @@ Simon is a test of memory. Have your program choose a sequence of different colo
   - Display fastest time on screen
 - Elapsed Time– Move to Gold
   - Create timer function
-    - [title](https://www.ostraining.com/blog/coding/stopwatch/)
-    - [title](https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript)
-    - [title](https://jsfiddle.net/Daniel_Hug/pvk6p/)
+    - [https://www.ostraining.com/blog/coding/stopwatch/](https://www.ostraining.com/blog/coding/stopwatch/)
+    - [https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript](https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript)
+    - [https://jsfiddle.net/Daniel_Hug/pvk6p/](https://jsfiddle.net/Daniel_Hug/pvk6p/)
   - Display timer on screen
 - Easy/Hard
   - Create skill level variable
@@ -115,8 +115,17 @@ Simon is a test of memory. Have your program choose a sequence of different colo
   - sound for incorrect match
   - sound when clicking button
 - Track highest score across games even if the page is reloaded
+- Record Time
+  - Create fastest time variable
+  - Display fastest time on screen
+- Elapsed Time
+  - Create timer function
+    - [https://www.ostraining.com/blog/coding/stopwatch/](https://www.ostraining.com/blog/coding/stopwatch/)
+    - [https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript](https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript)
+    - [https://jsfiddle.net/Daniel_Hug/pvk6p/](https://jsfiddle.net/Daniel_Hug/pvk6p/)
+  - Display timer on screen
 
-![alt text](images/gold wireframe.png) "gold wireframe image"
+![gold wireframe image](/images/gold wireframe.png)
 
 ## Gold Pseudocode
 
