@@ -66,6 +66,7 @@ powerOn.addEventListener("click", (event) => {
     on = false;
     document.querySelector("#countDisplay").style.backgroundColor = "darkred";
     document.querySelector("#levelDisplay").style.backgroundColor = "darkred";
+    document.querySelector("#startGameBtn").style.backgroundColor = "darkred";
     count.innerHTML = "--";
     startGameBtn.style.backgroundColor = "red";
     gameActive = false;
