@@ -11,6 +11,7 @@ let on = false; // variable for power switch status
 let highScore = 0; //variable to track high score
 // let lowTime = 0; //variable to track lowest time achieved;
 let retry = 1; //variable to track retries for easy mode;
+let highlevel = sessionStorage.getItem(highScore);
 
 //HTML Selectors
 const startGameBtn = document.querySelector("#startGameBtn");
@@ -45,9 +46,24 @@ powerOn.addEventListener("click", (event) => {
   if (powerOn.checked == true) {
     on = true;
     //display beginning level
-    count.innerHTML = levelCounter;
+    document.querySelector("#countDisplay").style.backgroundColor = "red";
+    document.querySelector("#levelDisplay").style.backgroundColor = "red";
+    red();
+    setTimeout(() => {
+      blue();
+    }, 400);
+    setTimeout(() => {
+      green();
+    }, 800);
+    // green();
+    setTimeout(() => {
+      yellow();
+    }, 1200);
+    count.innerHTML = 0;
   } else {
     on = false;
+    document.querySelector("#countDisplay").style.backgroundColor = "darkred";
+    document.querySelector("#levelDisplay").style.backgroundColor = "darkred";
     count.innerHTML = "--";
     startGameBtn.style.backgroundColor = "red";
     gameActive = false;
@@ -197,56 +213,53 @@ function gameRound() {
   if (highScore <= levelCounter) {
     highScore = levelCounter;
     document.querySelector(".highlevel").innerHTML = highScore;
+    $('input[type="submit"][value="Search"]');
+    sessionStorage.setItem(highLevel);
   }
-  if (levelCounter < 20) {
-    clearInterval(eventTimer);
-    //   console.log(gameSequence);
-    if (highScore <= levelCounter) {
-      highScore = levelCounter;
-      document.querySelector(".highlevel").innerHTML = highScore;
-    }
-
-    levelCounter++;
-    // console.log(`level is ${levelCounter}`);
-    count.innerHTML = levelCounter;
-    sequenceNumber = levelCounter;
-    //   console.log(`sequencenumber is ${sequenceNumber}`);
-    for (let i = 0; i < sequenceNumber; i++) {
-      // if (computerTurn) {
-      // console.log(computerTurn);
-      // console.log(`i=${i}`);
-      setTimeout(() => {
-        if (gameSequence[i] == 1) {
-          // console.log("calling red");
-          red();
-        } else if (gameSequence[i] == 2) {
-          // console.log("calling blue");
-          blue();
-        } else if (gameSequence[i] == 3) {
-          // console.log("calling yellow");
-          yellow();
-        } else if (gameSequence[i] == 4) {
-          // console.log("calling green");
-          green();
-        }
-      }, 1000 * i);
-      // console.log(`computer sequence number is ${i}`);
-      // }
-      console.log("computer is done, players turn");
-      computerTurn = false;
-      playerSequence = [];
-    }
-    sequenceNumber = 1;
-  } else {
-    console.log("Congrats!  You won the game!");
-    let audio = document.getElementById("gameWinSound");
-    audio.play();
-    startGameBtn.style.backgroundColor = "red";
-    count.innerHTML = "--";
-    gameActive = false;
-    clearInterval(eventTimer);
-    // eventTimer = setInterval(playGame, 2000);
+}
+if (levelCounter < 20) {
+  clearInterval(eventTimer);
+  //   console.log(gameSequence);
+  levelCounter++;
+  // console.log(`level is ${levelCounter}`);
+  count.innerHTML = levelCounter;
+  sequenceNumber = levelCounter;
+  //   console.log(`sequencenumber is ${sequenceNumber}`);
+  for (let i = 0; i < sequenceNumber; i++) {
+    // if (computerTurn) {
+    // console.log(computerTurn);
+    // console.log(`i=${i}`);
+    setTimeout(() => {
+      if (gameSequence[i] == 1) {
+        // console.log("calling red");
+        red();
+      } else if (gameSequence[i] == 2) {
+        // console.log("calling blue");
+        blue();
+      } else if (gameSequence[i] == 3) {
+        // console.log("calling yellow");
+        yellow();
+      } else if (gameSequence[i] == 4) {
+        // console.log("calling green");
+        green();
+      }
+    }, 1000 * i);
+    // console.log(`computer sequence number is ${i}`);
+    // }
+    console.log("computer is done, players turn");
+    computerTurn = false;
+    playerSequence = [];
   }
+  sequenceNumber = 1;
+} else {
+  console.log("Congrats!  You won the game!");
+  let audio = document.getElementById("gameWinSound");
+  audio.play();
+  startGameBtn.style.backgroundColor = "red";
+  count.innerHTML = "--";
+  gameActive = false;
+  clearInterval(eventTimer);
+  // eventTimer = setInterval(playGame, 2000);
 }
 
 // check match function

@@ -12,19 +12,19 @@
   </head>
   <body>
     <audio
-      id="greenBtnSound"
+      id="redBtnSound"
       src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
     ></audio>
-    <audio id="redBtnSound">
+    <audio id="blueBtnSound">
       <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" />
       <source />
     </audio>
     <audio
-      id="yellowBtnSound"
+      id="greenBtnSound"
       src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
     ></audio>
     <audio
-      id="blueBtnSound"
+      id="yellowBtnSound"
       src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
     ></audio>
     <audio
@@ -58,7 +58,7 @@
             <div id="currentText2">Level</div>
           </div>
           <div id="highLevelBox">
-            <div id="countDisplay">
+            <div id="levelDisplay">
               <div class="highlevel" id="displayText">
                 --
               </div>
@@ -76,7 +76,7 @@
               id="mydiffswitch"
               tabindex="0"
               checked
-            />
+            /></input>
             <label class="difficultyswitch-label" for="mydiffswitch">
               <span class="difficultyswitch-inner"></span>
               <span class="difficultyswitch-switch"></span>
@@ -99,6 +99,15 @@
         </div>
       </div>
     </div>
+    <p>
+      <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img
+          style="border: 0; width: 88px; height: 31px;"
+          src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+          alt="Valid CSS!"
+        />
+      </a>
+    </p>
     <script src="js/script.js"></script>
   </body>
 </html>
