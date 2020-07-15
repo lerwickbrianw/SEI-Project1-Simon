@@ -115,10 +115,10 @@ Simon is a test of memory. Have your program choose a sequence of different colo
   - sound for incorrect match
   - sound when clicking button
 - Track highest score across games even if the page is reloaded
-- Record Time
+- ~~Record Time~~ **Not completed**
   - Create fastest time variable
   - Display fastest time on screen
-- Elapsed Time
+- ~~Elapsed Time~~ **Not Completed**
   - Create timer function
     - [https://www.ostraining.com/blog/coding/stopwatch/](https://www.ostraining.com/blog/coding/stopwatch/)
     - [https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript](https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript)
@@ -152,6 +152,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
   - Add document selector and play() code
 - Classic game look
   - Add power button
+- Add sessionStorage set and get to store and retreive high score after page refresh
 
 # Final Solution
 
