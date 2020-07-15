@@ -45,6 +45,7 @@ powerOn.addEventListener("click", (event) => {
     //display beginning level
     document.querySelector("#countDisplay").style.backgroundColor = "red";
     document.querySelector("#levelDisplay").style.backgroundColor = "red";
+    document.querySelector("#startGameBtn").style.backgroundColor = "red";
     red();
     setTimeout(() => {
       blue();
