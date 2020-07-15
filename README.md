@@ -95,7 +95,7 @@ Simon is a test of memory. Have your program choose a sequence of different colo
   - Create fastest time variable
   - Display fastest time on screen
 - Elapsed Time– Move to Gold
-  - Create timer function
+  - Create timer function - possible solutions:
     - [https://www.ostraining.com/blog/coding/stopwatch/](https://www.ostraining.com/blog/coding/stopwatch/)
     - [https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript](https://stackoverflow.com/questions/20318822/how-to-create-a-stopwatch-using-javascript)
     - [https://jsfiddle.net/Daniel_Hug/pvk6p/](https://jsfiddle.net/Daniel_Hug/pvk6p/)
@@ -157,3 +157,17 @@ Simon is a test of memory. Have your program choose a sequence of different colo
 # Final Solution
 
 ![Simon screenshot](/images/simon_screenshot.png)
+
+Link to site: [https://lerwickbrianw.github.io/SEI-Project1-Simon/](https://lerwickbrianw.github.io/SEI-Project1-Simon/)
+
+### Acknowledgements
+
+Toggle switch code from www.proto.io
+
+### Future Opportunities
+
+- Complete Elapsed Time and Record Time functions
+- Increase level of difficulty
+  - Options:
+    - Add level button for player to select the level
+    - Decrease time interval between computer flashes

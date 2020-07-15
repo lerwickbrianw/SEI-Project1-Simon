@@ -17,7 +17,6 @@
     ></audio>
     <audio id="blueBtnSound">
       <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" />
-      <source />
     </audio>
     <audio
       id="greenBtnSound"
@@ -38,10 +37,10 @@
 
     <!-- <div class="timer">0:00</div> -->
     <div id="outerCircle">
-      <div class="cell cell-red" value="1"></div>
-      <div class="cell cell-blue" value="2"></div>
-      <div class="cell cell-green" value="3"></div>
-      <div class="cell cell-yellow" value="4"></div>
+      <div class="cell cell-red"></div>
+      <div class="cell cell-blue"></div>
+      <div class="cell cell-green"></div>
+      <div class="cell cell-yellow"></div>
       <div id="innerCircle">
         <div id="title">SIMON</div>
         <div id="switches">
@@ -50,7 +49,7 @@
           <div id="startButtonTxt">Start</div>
           <div id="countBox">
             <div id="countDisplay">
-              <div class="currentlevel" id="displayText">
+              <div class="currentlevel displayText">
                 --
               </div>
             </div>
@@ -59,7 +58,7 @@
           </div>
           <div id="highLevelBox">
             <div id="levelDisplay">
-              <div class="highlevel" id="displayText">
+              <div class="highlevel displayText">
                 --
               </div>
             </div>
@@ -76,7 +75,7 @@
               id="mydiffswitch"
               tabindex="0"
               checked
-            /></input>
+            />
             <label class="difficultyswitch-label" for="mydiffswitch">
               <span class="difficultyswitch-inner"></span>
               <span class="difficultyswitch-switch"></span>
