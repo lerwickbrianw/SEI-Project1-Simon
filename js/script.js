@@ -236,7 +236,7 @@ function checkMatch() {
   } else {
     let audio = document.getElementById("wrongSound");
     audio.play();
-    if (easy == true && retry <= 3) {
+    if (easy == true && retry < 3) {
       retry++;
       levelCounter--;
       sequenceNumber = 0;

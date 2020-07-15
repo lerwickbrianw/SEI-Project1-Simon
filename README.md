@@ -171,3 +171,4 @@ Toggle switch code from www.proto.io
   - Options:
     - Add level button for player to select the level
     - Decrease time interval between computer flashes
+- Add button to turn sound on and off
